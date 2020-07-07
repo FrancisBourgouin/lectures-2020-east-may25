@@ -1,0 +1,123 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+h1.title {
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  align-items: center;
+}
+h1.title span {
+  display: block;
+  overflow: hidden;
+  height: auto;
+  box-sizing: border-box;
+}
+h1.title span.text:not(:last-of-type) {
+  padding-right: 0.5em;
+}
+h1.title.intro_start {
+  animation: 100ms ease-in 1400ms 6 forwards acronym_smash;
+}
+h1.title.intro_start .letter, h1.title.intro_start .text {
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+h1.title.intro_start .letter {
+  animation-name: acronym_emphasis;
+  animation-duration: 500ms;
+}
+h1.title.intro_start .text {
+  animation: 300ms ease-in 500ms forwards acronym_extra_scale_down, 50ms ease-in 1300ms forwards acronym_extra_remove;
+}
+h1.title.intro_start ~ button {
+  animation: 300ms ease-in 2500ms forwards reveal_button, 1550ms ease-in-out 4000ms forwards infinite glow_button;
+}
+
+button {
+  font-family: 'Work Sans', sans-serif;
+  background: #6441A4;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5em;
+  opacity: 0;
+  text-align:center;
+}
+button i {
+  margin-right: 0.5em;
+}
+
+.matches span{
+  display: inline-block;
+  margin:0.5em 1em;
+}
+
+@keyframes acronym_emphasis {
+  0% {
+    font-size: initial;
+  }
+  100% {
+    font-size: 4em;
+  }
+}
+@keyframes acronym_extra_scale_down {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes acronym_extra_remove {
+  100% {
+    width: 0;
+  }
+}
+@keyframes acronym_smash {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-1%);
+  }
+  50% {
+    transform: translateX(1%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes reveal_button {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes glow_button {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
